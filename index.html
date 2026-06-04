@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. Sinar Pratama Konstruksi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --primary-color: #ffc107; /* Kuning Konstruksi */
+            --secondary-color: #0d6efd; /* Blue Energi */
+            --dark-color: #1e293b; /* Slate Dark */
+            --accent-color: #fd7e14; /* Oranye Workshop */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fafc;
+        }
+
+        /* --- Custom Carousel Styling --- */
+        .carousel-item {
+            height: 100vh; /* Full screen di desktop */
+            min-height: 500px;
+            background-color: black;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            opacity: 0.5; /* Memberikan efek gelap agar teks terbaca */
+        }
+
+        .carousel-caption {
+            bottom: 20%;
+            z-index: 10;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        /* Animasi teks carousel */
+        .carousel-caption h1 {
+            animation: fadeInUp 1s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Utility Styling --- */
+        .card-service {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+        }
+        .card-service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .bg-gradient-warning-custom { background: linear-gradient(45deg, #ffc107, #ff9800); }
+        .bg-gradient-info-custom { background: linear-gradient(45deg, #0dcaf0, #0d6efd); }
+        .bg-gradient-danger-custom { background: linear-gradient(45deg, #ea4335, #d93025); }
+
+        footer { background-color: var(--dark-color); }
+
+        /* Responsivitas HP */
+        @media (max-width: 768px) {
+            .carousel-item { height: 70vh; }
+            .carousel-caption h1 { font-size: 1.8rem; }
+            .carousel-caption p { font-size: 0.9rem; }
+        }
+
+        @media (max-width: 768px) {
+  /* Ganti .hero-container dengan class flex-container banner kamu */
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Ini yang bikin semua konten rata tengah */
+    text-align: center;  /* Memastikan teks paragraf/heading ikut rata tengah */
+  }
+
+  /* Memastikan tombol tidak melebar penuh */
+  .hero-container .btn {
+    width: fit-content; 
+  }
+
+  .navbar-toggler {
+    border: none;
+  }
+  .navbar-toggler-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .navbar-brand {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 100px);
+  }
+
+  .navbar .container {
+    gap: 0.5rem;
+  }
+
+
+  .navbar-brand {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100vw - 100px);
+}
+
+
+.object-fit-cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+}
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top border-bottom border-warning border-3">
+        <div class="container">
+           <a class="navbar-brand fw-bold text-uppercase d-flex align-items-center" href="#">
+    <img src="img/logo_spk1.png" alt="" height="40" class="me-2">
+    <span class="text-warning">PT. Sinar Pratama Konstruksi</span>
+</a>
+           <button class="navbar-toggler" type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-semibold">
+                    <li class="nav-item"><a class="nav-link" href="#homeCarousel">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyek">Proyek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+                <a href="#kontak" class="btn btn-warning btn-sm ms-lg-3 rounded-pill fw-bold text-dark px-3">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+   <div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="img/bg_pt_spk.png" alt="Konstruksi Baja">
+                <div class="carousel-caption text-center">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase">Best Construction</span>
+                    <h1 class="display-4 fw-bold text-white">General Contractor - Engineering, Inspection<br><span class="text-warning">Electrical & Construction</span></h1>
+                    <p class="lead mb-4 d-none d-md-block">Solusi konstruksi berskala nasional dengan integrasi sistem engineering terbaik.</p>
+                    <a href="#proyek" class="btn btn-warning btn-lg px-4 fw-bold rounded-pill shadow">Lihat Portofolio</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="img/ws_bangunan_dpn.png" alt="Workshop Bubut">
+                <div class="carousel-caption text-center">
+                    <span class="badge bg-info text-white mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase">Modern Workshop</span>
+                    <h1 class="display-4 fw-bold text-white">Workshop & <br><span class="text-info">Fabrikasi Modern</span></h1>
+                    <p class="lead mb-4 d-none d-md-block">Layanan bubut, welding, dan perbaikan mesin industri dengan standar ISO.</p>
+                    <a href="#layanan" class="btn btn-info btn-lg px-4 text-white fw-bold rounded-pill shadow">Layanan Kami</a>
+                </div>
+            </div>
+
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="img/ws_dalam_gabungan.png" alt="Heavy Machinery">
+                <div class="carousel-caption text-center">
+                    <span class="badge bg-danger text-white mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase">Infrastruktur</span>
+                    <h1 class="display-4 fw-bold text-white">Solusi Electrical & Construction<br><span class="text-danger">Terpercaya</span></h1>
+                    <p class="lead mb-4 d-none d-md-block">Dukungan infrastruktur kokoh untuk proyek skala kecil hingga megaproyek.</p>
+                    <a href="#kontak" class="btn btn-danger btn-lg px-4 fw-bold rounded-pill shadow">Konsultasi Gratis</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <section id="tentang" class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="row align-items-center g-5">
+                <div class="col-md-6">
+                    <h5 class="text-primary fw-bold text-uppercase">Siapa Kami</h5>
+                    <h2 class="fw-bold mb-4">Dedikasi Penuh pada Kekuatan Struktural</h2>
+                    <h6 class="fw-bold mb-4">Industri
+                                            Kontraktor Pekerja Khusus, Tahun Pendirian 2018, Ukuran perusahaan 11-50 karyawan, Kantor Pusat di Deli serdang, Sumatra Utara</h6>
+                    <p class="text-muted">1. Membangun sesuai dengan Gambar Bangunan, menyiapkan Buku Panduan Operasi Pabrik Minyak Sawit, Memberikan Pengetahuan Lingkungan dan Keselamatan. 2. Pengadaan material oleh Kontraktor Pabrik Minyak Sawit, pengadaan mesin PKS / mesin Pabrik Minyak Sawit, pembuatan / fabrikasi, perakitan / instalasi, uji coba dan pengoperasian serta pemeliharaan / perawatan Pabrik Minyak Sawit selama 1 (satu) tahun untuk semua pekerjaan mekanik, perpipaan dan listrik di beberapa stasiun kerja seperti: - Stasiun penerimaan buah sawit/Stasiun Penerimaan & Penyimpanan Buah - Stasiun perebusan/Stasiun perebusan - Stasiun perontokan buah sawit/Stasiun perontokan - Stasiun pengepresan buah sawit/Stasiun pengepresan - Stasiun penjernihan/Stasiun penjernihan - Stasiun penyimpanan minyak/Stasiun Tangki Penyimpanan Massal - Stasiun pemisahan ampas biji/Stasiun pengupasan kulit biji - Stasiun pengolahan inti biji/Stasiun Biji & Inti - Pembangkit tenaga uap/Pembangkit Listrik atau Pembangkit Listrik - Stasiun pengolahan air/Pabrik Pengolahan Air - Sistem Pengolahan Limbah - Instalasi Pipa & Pekerjaan Listrik + Instalasi instrumen dan mesin Pekerjaan lain (jasa kontraktor pabrik minyak sawit) terdiri dari: - Pembangunan Barak Kerja dan Kamp Basis - Mobilisasi dan Demobilisasi - Perencanaan teknis - Akomodasi & Transportasi - Penerangan listrik dan air kerja - Pengujian & Komisi</p>
+                    <div class="row g-3 mt-2">
+                        <div class="col-6">
+                            <div class="p-3 bg-light border-start border-warning border-4 rounded shadow-sm">
+                                <h3 class="fw-bold text-warning mb-0">150+</h3>
+                                <small class="text-muted fw-semibold">Proyek Selesai</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 bg-light border-start border-primary border-4 rounded shadow-sm">
+                                <h3 class="fw-bold text-primary mb-0">45+</h3>
+                                <small class="text-muted fw-semibold">Tenaga Ahli</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-gradient-info-custom text-white rounded-4 shadow">
+                        <i class="bi bi-shield-check display-4 mb-3 d-block text-warning"></i>
+                        <h4 class="fw-bold">Standar K3 & ISO Terjamin</h4>
+                        <p class="mb-0 text-white-50">Setiap pengerjaan di workshop maupun lapangan dikerjakan dengan standar keselamatan kerja yang ketat untuk memastikan hasil tanpa cacat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="layanan" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center max-width-md mx-auto mb-5">
+                <h6 class="text-warning fw-bold text-uppercase">Layanan Kami</h6>
+                <h2 class="fw-bold">Solusi Konstruksi Terintegrasi</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card card-service h-100 bg-gradient-warning-custom text-white shadow-sm rounded-4">
+                        <div class="card-body p-4 text-center">
+                            <div class="bg-white text-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                                <i class="bi bi-tools fs-2"></i>
+                            </div>
+                            <h4 class="card-title fw-bold text-dark">Fabrikasi Logam & Baja</h4>
+                            <p class="card-text text-dark-50">Pemotongan, pengelasan, dan pembentukan baja struktural untuk kebutuhan industri berat.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-service h-100 bg-gradient-info-custom text-white shadow-sm rounded-4">
+                        <div class="card-body p-4 text-center">
+                            <div class="bg-white text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                                <i class="bi bi-building fs-2"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Konstruksi Sipil</h4>
+                            <p class="card-text text-white-50">Pembangunan gedung, gudang komersial, pabrik, serta infrastruktur jalan.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-service h-100 bg-gradient-danger-custom text-white shadow-sm rounded-4">
+                        <div class="card-body p-4 text-center">
+                            <div class="bg-white text-danger rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 70px; height: 70px;">
+                                <i class="bi bi-gear-wide-connected fs-2"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Maintenance & Bubut</h4>
+                            <p class="card-text text-white-50">Perbaikan mesin industri, bubut presisi, dan pengerjaan kustom komponen mekanikal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyek" class="py-5 bg-white">
+    <div class="container py-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+            <div>
+                <h6 class="text-primary fw-bold text-uppercase">Portofolio</h6>
+                <h2 class="fw-bold mb-0">Proyek Unggulan Kami</h2>
+            </div>
+        </div>
+        
+        <div class="row g-3">
+            <div class="col-sm-6 col-md-4">
+                <div class="card h-100 border-0 shadow-sm overflow-hidden rounded-3">
+                    <div class="ratio ratio-4x3">
+                        <img src="img/kirim_barang.png" alt="Proyek 1" class="img-fluid object-fit-cover">
+                    </div>
+                    <div class="p-3 bg-dark bg-opacity-75 text-white text-center">
+                        <h6 class="mb-0 fw-bold">Pengiriman ke Site</h6>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-6 col-md-4">
+                <div class="card h-100 border-0 shadow-sm overflow-hidden rounded-3">
+                    <div class="ratio ratio-4x3">
+                        <img src="img/ws_kerja01_editAI.png" alt="Proyek 2" class="img-fluid object-fit-cover">
+                    </div>
+                    <div class="p-3 bg-warning text-dark text-center">
+                        <h6 class="mb-0 fw-bold">Progress Proyek Boiler</h6>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-6 col-md-4">
+                <div class="card h-100 border-0 shadow-sm overflow-hidden rounded-3">
+                    <div class="ratio ratio-4x3">
+                        <img src="img/negosiasi1.png" alt="Proyek 3" class="img-fluid object-fit-cover">
+                    </div>
+                    <div class="p-3 bg-primary text-white text-center">
+                        <h6 class="mb-0 fw-bold">Customer Commit</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="kontak" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h6 class="text-danger fw-bold text-uppercase">Hubungi Kami</h6>
+                    <h2 class="fw-bold mb-4">Mari Mulai Proyek Hebat Anda</h2>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-warning text-dark rounded p-2 me-3"><i class="bi bi-geo-alt-fill fs-5"></i></div>
+                        <div><h6 class="mb-0 fw-bold">Lokasi Workshop</h6><small class="text-muted">Jalan Bintang Terang Ujung No.88 Kel/Desa Mulyorejo-Sunggal, Deli Serdang - Sumatra Utara 20244</small></div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary text-white rounded p-2 me-3"><i class="bi bi-telephone-fill fs-5"></i></div>
+                        <div><h6 class="mb-0 fw-bold">Telepon / WA</h6><small class="text-muted">+62 812-3456-7890</small></div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="card p-4 shadow-sm border-0 rounded-4 bg-white">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6"><input type="text" class="form-control" placeholder="Nama Anda" required></div>
+                                <div class="col-md-6"><input type="email" class="form-control" placeholder="Email Perusahaan" required></div>
+                                <div class="col-12">
+                                    <select class="form-select">
+                                        <option>Fabrikasi Baja / Workshop</option>
+                                        <option>Konstruksi Sipil / Bangunan</option>
+                                    </select>
+                                </div>
+                                <div class="col-12"><textarea class="form-control" rows="4" placeholder="Detail Proyek..." required></textarea></div>
+                                <div class="col-12"><button type="submit" class="btn btn-primary w-100 fw-bold py-2 rounded-pill">Kirim Penawaran</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-white py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <p class="mb-0 text-white-50">&copy; 2026 PT Sinar Pratama Konstruksi.  Hak Cipta Dilindungi.</p>
+            <div class="d-flex gap-3 fs-5">
+                <a href="#" class="text-warning"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-warning"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-warning"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
